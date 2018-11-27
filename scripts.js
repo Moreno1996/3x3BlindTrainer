@@ -52,7 +52,28 @@ var words = [
 [	"Zaandam",	"Zebra",	"Zac",	"Zelda",	"Zee",	"Zalf",	"Zagen",	"Zaha",	"Ziggy",	"Zij",	"Zak",	"Zaal",	"Zimbabwe",	"Zon",	"Zoo",	"Zweep",	"Zuur",	"Zes",	"Zoet",	"Zus",	"Zeven",	"Zwaluw",	"",	"X"	]
 ];
 
+var good = localStorage.getItem('good') || 0;
+var total = localStorage.getItem('total') || 0;
 
+
+
+
+
+function goodResult(){
+	good ++;
+		total ++;
+
+	next();
+		turn();
+
+}
+function wrongResult(){
+		total ++;
+
+	next();
+		turn();
+
+}
 function next(){
 	var i = Math.floor(Math.random() * 24);
 	var j = Math.floor(Math.random() * 24);
@@ -63,10 +84,18 @@ function next(){
 	var letter = letters[i][j];
 	document.getElementById("front").innerHTML=letter;
 	document.getElementById("back").innerHTML=word;
+	document.getElementById("goodCount").innerHTML=good;
+		document.getElementById("total").innerHTML=total;
+
+
+  localStorage.setItem('good', good);
+  localStorage.setItem('total', total);
 
 	}
-	function turn(){
-var element = document.getElementById("word");
+function turn(){
+	var element = document.getElementById("word");
     element.classList.toggle("active");
-	}
+	var element = document.getElementById("bottom_container");
+    element.classList.toggle("active");
+}
 	

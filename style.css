@@ -8,12 +8,12 @@ html, body {
 	flex-grow:1;
 
 }
-#turn,#next{
+#turn,#good, #wrong{
 	flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-	font-size: 3em;
+	font-size: 5em;
 	background-color:#E63946;
 	border: none;
 	}
@@ -31,7 +31,7 @@ html, body {
 }
 #word{
 	width: 100%;
-	flex-grow:7;
+	flex-grow:12;
 	display: flex;
 background-color:red;
 transition: 0.6s;
@@ -79,4 +79,25 @@ margin: auto;
 
 	}
 
+}
+
+#bottom_container #turn{
+	display:block;
+}
+#bottom_container.active #turn{
+	display: none;
+}
+
+#bottom_container #good, #bottom_container #wrong{
+	display:none;
+}
+#bottom_container.active #good, #bottom_container.active #wrong{
+	display: block;
+}
+#counter{
+	    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 4em;
+    z-index: 10;
 }
