@@ -83,3 +83,34 @@ translateZ(100px);
 .cube.show-top    { transform: translateZ(-100px) rotateX( -90deg); }
 .cube.show-bottom { transform: translateZ(-100px) rotateX(  90deg); }
 
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+	height:3rem;
+	position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    margin: 0;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
