@@ -21,6 +21,7 @@ var allNumbers;
 var hard = false;
 var good = 0;
 var total =0;
+var started = false;
 function startGame(){
 	allNumbers = Array.from(Array(letters.length).keys());
 	allNumbers = shuffleArray(allNumbers);
@@ -28,10 +29,6 @@ function startGame(){
 }
 function setAnswer(i){
 	correctAnswer = i;
-	setColor();
-}
-function setAnswer(){
-	correctAnswer = Math.floor(Math.random()*letters.length);
 	setColor();
 }
 function setColor(){
@@ -57,6 +54,9 @@ function setColor(){
 	
 }
 function answer(i){
+	if(!started){
+		stopwatch.start();
+	}
 	if (base+i==correctAnswer){
 		console.log("Good"); 
 		good ++;
@@ -73,11 +73,12 @@ function answer(i){
 	setAnswer(allNumbers.shift());
 	}
 	else{
+	stopwatch.stop();	
 	document.getElementById("res").innerHTML = 	document.getElementById("res").innerHTML + " and no more questions!";
 	total = 24;
 	}
 	document.getElementById("goodCount").innerHTML=good;
-		document.getElementById("total").innerHTML=total;
+	document.getElementById("total").innerHTML=total;
 }
 
 function shuffleArray(array) {
@@ -94,11 +95,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   checkbox.addEventListener('change', function () {
     if (checkbox.checked) {
-      // do this
-	hard = true;    
+	hard = true;  
+stopwatch.stop();
+stopwatch.clear();	
 	startGame();
 	} else {
-      // do that
+	  stopwatch.stop();
+stopwatch.clear();	
       hard = false;
 	  startGame();
     }
