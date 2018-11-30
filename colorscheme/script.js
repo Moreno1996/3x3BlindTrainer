@@ -17,19 +17,39 @@ var colors = [
 ]
 var correctAnswer = 0;
 var base = 0;
-var good = localStorage.getItem('good') || 0;
-var total = localStorage.getItem('total') || 0;
-function setColor(){
-	var i = Math.floor(Math.random()*letters.length);
+var allNumbers;
+var hard = false;
+var good = 0;
+var total =0;
+function startGame(){
+	allNumbers = Array.from(Array(letters.length).keys());
+	allNumbers = shuffleArray(allNumbers);
+	setAnswer(allNumbers.shift());
+}
+function setAnswer(i){
 	correctAnswer = i;
-	var j = i - (i%4);
+	setColor();
+}
+function setAnswer(){
+	correctAnswer = Math.floor(Math.random()*letters.length);
+	setColor();
+}
+function setColor(){
+	console.log(allNumbers);
+	var j = correctAnswer - (correctAnswer%4);
 	base = j;
-	console.log(i + " ->" + j)
-	var letter = letters[i];
-	var color = colors[i];
+	console.log(correctAnswer + " ->" + j)
+	var letter = letters[correctAnswer];
+	var color = colors[correctAnswer];
 	document.getElementById("top").style.backgroundColor=colorNames[color[0]];
 	document.getElementById("right").style.backgroundColor=colorNames[color[1]];
+	if(!hard){
 	document.getElementById("front").style.backgroundColor=colorNames[color[2]];
+	}
+	else{
+	document.getElementById("front").style.backgroundColor="black";
+
+	}
 	for(var a = 0; a<4; a++){
 	document.getElementById("button" + (a+1)).value=letters[j+a];
 
@@ -47,10 +67,40 @@ function answer(i){
 				document.getElementById("res").innerHTML="To Bad!";
 
 	}
+		
+	if(allNumbers.length>0){	
 	total ++;
-		document.getElementById("goodCount").innerHTML=good;
+	setAnswer(allNumbers.shift());
+	}
+	else{
+	document.getElementById("res").innerHTML = 	document.getElementById("res").innerHTML + " and no more questions!";
+	total = 24;
+	}
+	document.getElementById("goodCount").innerHTML=good;
 		document.getElementById("total").innerHTML=total;
-		 localStorage.setItem('good', good);
-		localStorage.setItem('total', total);
-	setColor();
 }
+
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+	return array;
+}
+document.addEventListener('DOMContentLoaded', function () {
+  var checkbox = document.querySelector('input[type="checkbox"]');
+
+  checkbox.addEventListener('change', function () {
+    if (checkbox.checked) {
+      // do this
+	hard = true;    
+	startGame();
+	} else {
+      // do that
+      hard = false;
+	  startGame();
+    }
+  });
+});
