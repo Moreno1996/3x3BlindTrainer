@@ -17,6 +17,8 @@ var colors = [
 ]
 var correctAnswer = 0;
 var base = 0;
+var good = localStorage.getItem('good') || 0;
+var total = localStorage.getItem('total') || 0;
 function setColor(){
 	var i = Math.floor(Math.random()*letters.length);
 	correctAnswer = i;
@@ -36,11 +38,19 @@ function setColor(){
 }
 function answer(i){
 	if (base+i==correctAnswer){
-		console.log("Good");
-	}
-	else{
-				console.log("False");
+		console.log("Good"); 
+		good ++;
+				document.getElementById("res").innerHTML="Great!";
 
 	}
+	else{
+				document.getElementById("res").innerHTML="To Bad!";
+
+	}
+	total ++;
+		document.getElementById("goodCount").innerHTML=good;
+		document.getElementById("total").innerHTML=total;
+		 localStorage.setItem('good', good);
+		localStorage.setItem('total', total);
 	setColor();
 }

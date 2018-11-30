@@ -1,12 +1,12 @@
 .scene {
-    width: 200px;
-    height: 200px;
-    perspective: 600px;
+    width: 30rem;
+    height: 30rem;
+  /* perspective: 600px; */
     margin: 0 auto;
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: 50%;
-    transform: translate3d(-100px,-100px,0);
+    transform: translate3d(-15rem,-15rem,0);
 }
 
 .cube {
@@ -19,8 +19,8 @@ transform: rotateX(-30deg) rotateY(-45deg);
 
 .cube__face {
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 30rem;
+  height: 30rem;
 	opacity:1;
 transform:rotateY(45deg);
 border: black 1px solid;
@@ -28,35 +28,17 @@ border: black 1px solid;
 
 .cube__face--front  { 
 background-color:green; 
-transform: rotateY(  0deg) translateZ(100px);
+transform: rotateY(  0deg) translateZ(15rem);
 }
 .cube__face--right  { 
 background-color:red;
 transform: rotateY( 90deg)
-translateZ(100px);
-
-}
-.cube__face--back   { 
-background-color:blue;
-transform: rotateY(180deg)
-translateZ(100px);
- 
-}
-.cube__face--left   { 
-background-color:orange;
-transform: rotateY(-90deg)translateZ(100px);
+translateZ(15rem);
 
 }
 .cube__face--top    { 
 background-color:white;
-transform: rotateX( 90deg)translateZ(100px);
-
-}
-.cube__face--bottom { 
-background-color:yellow;
-transform: 
-rotateX(-90deg)
-translateZ(100px);
+transform: rotateX( 90deg)translateZ(15rem);
 
 }
 #button-container{
@@ -72,9 +54,9 @@ translateZ(100px);
 }
 .button{
     flex-grow: 1;
-    margin: 0.5em;
-    padding: 2em;
-}
+    margin: 0.1rem;
+    padding: 1rem;
+    font-size: 3rem;}
 
 .cube.show-front  { transform: translateZ(-100px) rotateY(   0deg); }
 .cube.show-right  { transform: translateZ(-100px) rotateY( -90deg); }
@@ -114,4 +96,44 @@ li a {
 
 li a:hover {
     background-color: #111;
+}
+
+#counter{
+	    position: absolute;
+    left: 1rem;
+	top: 4rem;
+    font-size: 4em;
+    z-index: 10;
+}
+#res{
+	    position: absolute;
+    right: 5rem;
+	top: 4rem;
+    font-size: 4em;
+    z-index: 10;
+}
+
+@media screen and (min-width: 800px) {
+.cube__face--front  { 
+transform: rotateY(  0deg) translateZ(6rem);
+}
+.cube__face--right  { 
+transform: rotateY( 90deg)
+translateZ(6rem);
+
+}
+.cube__face--top    { 
+transform: rotateX( 90deg)translateZ(6rem);
+
+}
+
+.scene {
+    width: 12rem;
+    height: 12rem;
+    transform: translate3d(-6rem,-6rem,0);
+}
+}
+.cube__face {
+  width: 12rem;
+  height: 12rem;
 }
