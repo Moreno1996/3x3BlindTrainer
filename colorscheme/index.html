@@ -3,7 +3,7 @@
 <head>
  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="capture">
 <ul>
   <li><a href="../index.html">Word Training</a></li>
   <li><a href="index.html">Color Schema training</a></li>
@@ -28,6 +28,7 @@ Hard mode:
 <div class="scene">
   <div class="cube">
     <div id="front"class="cube__face cube__face--front"></div>
+	<div id="frontclone" class="cube__face cube__face--front"></div>
     <div id="right"class="cube__face cube__face--right"></div>
     <div id="top"class="cube__face cube__face--top"></div>
   </div>
@@ -48,3 +49,13 @@ startGame();
 </script>	
 </body>
 </html>
+
+
+   <script src="html2canvas.js"></script>
+
+<script>
+
+html2canvas(document.querySelector("#capture"),15000).then(canvas => {
+    document.body.appendChild(canvas)
+});
+</script>

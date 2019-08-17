@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<ul>
+  <li><a href="index.html">Word Training</a></li>
+  <li><a href="colorscheme/index.html">Color Schema training</a></li>
+</ul>
+<div id="counter">
+<span id="goodCount"></span>/<span id="total"></span>
+</div>
+<div id="container">
+	<div id="card">
+	<div id="word">
+	<p id="front"></p>
+	<p id="back"></p>
+	</div>
+	<div id="bottom_container">
+	<button id="turn" onClick="turn()">
+	&#8634;
+	</button>
+	<button id="wrong" onClick="wrongResult()">
+	&#10007;
+	</button>
+	<button id="good" onClick="goodResult()">
+	&#10003;
+	</button>
+	</div>
+	</div>
+</div>
+<script language="javascript" type="text/javascript" src="scripts.js"></script>		
+
+<script>
+// self executing function here
+next();
+</script>
+</body>
+</html>

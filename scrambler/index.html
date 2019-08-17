@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Hello Tizen</title>
+</head>
+
+<body id="capture">
+    <div id="container">
+        <div id="contents">
+            <span id="content-text">Hello Tizen</span>
+        </div>
+    </div>
+   <script src="js/jquery-3.3.1.min.js"></script>
+   <script src="js/main.js"></script>
+    <script src="js/scramble.js"></script>
+    
+</body>
+</html>
+
+
+   <script src="html2canvas.js"></script>
+
+<script>
+html2canvas(document.querySelector("#capture")).then(canvas => {
+    document.body.appendChild(canvas)
+});
+</script>
