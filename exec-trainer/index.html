@@ -9,13 +9,18 @@
 <body>
       <div id="container">
         <div id="contents">
+          <button onclick="newScramble()">New Scramble</button><br/>
             <span id="content-text"></span>
         </div>
     </div>
-   <script src="js/jquery-3.3.1.min.js"></script>
-   <script src="js/main.js"></script>
-    <script src="js/scramble.js"></script>
-        <script src="js/blindMain.js"></script>
-
+  <br/>
+    <canvas id="canvas" width="300px" height="400px"></canvas>
+    <br/>
+Edges: <span id="edges"></span><br/>
+Corners: <span id="corners"></span>
 </body>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/scramble.js"></script>
+<script src="js/blindMain.js"></script>
+<script src="js/main.js"></script>
 </html>
