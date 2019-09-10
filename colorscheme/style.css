@@ -117,7 +117,7 @@ li a:hover {
     font-size: 2em;
     line-height: 2em;
     z-index: 10;
-    color: white;
+    color: black;
 }
 #res{
 	    position: absolute;
