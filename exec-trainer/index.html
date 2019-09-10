@@ -7,17 +7,27 @@
 </head>
 
 <body>
-      <div id="container">
+
+      <div class="container">
+        <div class="top_container container_child">
         <div id="contents">
           <button onclick="newScramble()">New Scramble</button><br/>
             <span id="content-text"></span>
         </div>
+        <br/>
+          <canvas id="canvas" class="canvas"></canvas>
+          <br/>
+      Edges: <span id="edges"></span><br/>
+      Corners: <span id="corners"></span>
     </div>
-  <br/>
-    <canvas id="canvas" width="300px" height="400px"></canvas>
-    <br/>
-Edges: <span id="edges"></span><br/>
-Corners: <span id="corners"></span>
+    <div class="bot_container container_child">
+
+    </div>
+
+    </div>
+
+
+</div>
 </body>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/scramble.js"></script>
